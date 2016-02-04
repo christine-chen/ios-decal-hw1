@@ -22,34 +22,36 @@ class Words {
 //: ### variables the same type? If not, why?
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: They are not the same type because the "!" represents a forcefully unsafe unwrapping of optionals while the "?" is declaring an Optional.
 
 
 //: ## Q2: Variable Types and Function Types
-    func arePalindromes(words: [String]) -> Bool {
+    class func arePalindromes(words: [String]) -> Bool {
         let reversedWords = words.map() {String($0.characters.reverse())}
-        var numElements = words.count
+        let numElements = words.count
         
-        for let i = 0; i < numElements; i++ {
+        for var i = 0; i < numElements - 1; i++ {
             if words[i] != reversedWords[i] {
                 return false
             }
         }
+        return true
     }
 //: ### Why does the compiler dislike the **for loop**? Fix it.
 //: ### What else is wrong with this function? You may have to refer to (but **not**
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: The compiler did not like the for loop because it was using "let" for "i". I was being changed and "let"s are used to declare things that are unmutable. Also it was also missing a return value at the end and numElements should be numElements - 1. Additionally, this arePalindromes(words: [String]) should be a class func instead of just func because we call this on Words not instances of the Words class.
 
 
 //: ## Q3: More Functions and Object Initialization
-    class func isAnagram() -> Bool {
-        var countLetters : [Character : Int]
-        var lenA = self.wordA.characters.count
-        var lenB = self.wordB.characters.count
-        
+    func isAnagram() -> Bool {
+//        var countLetters : [Character : Int]
+        var countLetters = [Character : Int]()
+        let lenA = self.wordA.characters.count
+        let lenB = self.wordB.characters.count
+    
         if lenA != lenB {
             return false
         }
@@ -68,7 +70,7 @@ class Words {
         
         for i in 0...lenB-1 {
             let letter = arrB[i]
-            if let val = countLetters[letter] {
+        if let val = countLetters[letter] {
                 countLetters[letter] = val - 1
             } else {
                 return false
@@ -81,7 +83,7 @@ class Words {
             }
         }
         
-        return nil
+        return true
     }
 //: ### What is the problem with declaring **countLetters** as we do in **Line X**,
 //: ### and then using it in **Line Y**? Fix it (by only changing **Line X**).
@@ -89,8 +91,7 @@ class Words {
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
-    
+//: countletters was declared incorrectly. Forgot to add parentheses and change : to =. Additionally, isAnagram() should just be a regular func instead of class func because we call instances of Words.isAnagram(), not Words.isAnagram().
     
 }
 
