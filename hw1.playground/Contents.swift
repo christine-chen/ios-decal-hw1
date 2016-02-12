@@ -30,7 +30,7 @@ class Words {
         let reversedWords = words.map() {String($0.characters.reverse())}
         let numElements = words.count
         
-        for var i = 0; i < numElements - 1; i++ {
+        for var i = 0; i < numElements; i++ {
             if words[i] != reversedWords[i] {
                 return false
             }
