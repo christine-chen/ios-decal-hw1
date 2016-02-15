@@ -42,7 +42,7 @@ class Words {
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: The compiler did not like the for loop because it was using "let" for "i". I was being changed and "let"s are used to declare things that are unmutable. Also it was also missing a return value at the end and numElements should be numElements - 1. Additionally, this arePalindromes(words: [String]) should be a class func instead of just func because we call this on Words not instances of the Words class.
+//: The compiler did not like the for loop because it was using "let" for "i". I was being changed and "let"s are used to declare things that are unmutable. Additionally, this arePalindromes(words: [String]) should be a class func instead of just func because we call this on Words not instances of the Words class.
 
 
 //: ## Q3: More Functions and Object Initialization
